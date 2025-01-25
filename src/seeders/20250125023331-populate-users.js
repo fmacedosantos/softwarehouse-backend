@@ -10,10 +10,10 @@ module.exports = {
         password: '$2a$10$f7FDTdyTWyfN/wP1sMnsE.A82UUkqMohul7Jy.yQTi1nOGpRII3Km',
         role: 'admin',
         biography: 'Técnico em desenvolvimento de sistemas.',
-        links: {
+        links: JSON.stringify({
           linkedin: 'https://www.linkedin.com/in/felipe-macedo-dos-santos-37264a1b5/',
           github: 'https://github.com/fmacedosantos?tab=repositories'
-        },
+        }),
         profile_picture: null,
         created_at: new Date(),
         updated_at: new Date()
