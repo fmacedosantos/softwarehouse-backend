@@ -1,16 +1,17 @@
-const express = require('express');
-const positionController = require('../controllers/positionController');
+const express = require('express')
+const positionController = require('../controllers/positionController')
+const checkToken = require('../middlewares/checkToken')
 
-const router = express.Router();
+const router = express.Router()
 
-router.get('/', positionController.findAllPositions);
+router.get('/', checkToken, positionController.findAllPositions)
 
-router.get('/:id', positionController.findOnePosition);
+router.get('/:id', checkToken, positionController.findOnePosition)
 
-router.post('/', positionController.createPosition);
+router.post('/', checkToken, positionController.createPosition)
 
-router.put('/:id', positionController.updatePosition);
+router.put('/:id', checkToken, positionController.updatePosition)
 
-router.delete('/:id', positionController.deletePosition);
+router.delete('/:id', checkToken, positionController.deletePosition)
 
-module.exports = router;
+module.exports = router

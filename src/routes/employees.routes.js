@@ -1,16 +1,17 @@
-const express = require('express');
-const employeeController = require('../controllers/employeeController');
+const express = require('express')
+const employeeController = require('../controllers/employeeController')
+const checkToken = require('../middlewares/checkToken')
 
-const router = express.Router();
+const router = express.Router()
 
-router.get('/', employeeController.findAllEmployees);
+router.get('/', checkToken, employeeController.findAllEmployees)
 
-router.get('/:id', employeeController.findOneEmployee);
+router.get('/:id', checkToken, employeeController.findOneEmployee)
 
-router.post('/', employeeController.createEmployee);
+router.post('/', checkToken, employeeController.createEmployee)
 
-router.put('/:id', employeeController.updateEmployee);
+router.put('/:id', checkToken, employeeController.updateEmployee)
 
-router.delete('/:id', employeeController.deleteEmployee);
+router.delete('/:id', checkToken, employeeController.deleteEmployee)
 
-module.exports = router;
+module.exports = router
