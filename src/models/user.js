@@ -32,12 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         createdAt: {
             type: DataTypes.DATE,
             field: 'created_at',
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
         updatedAt: {
             type: DataTypes.DATE,
             field: 'updated_at',
-            defaultValue: DataTypes.NOW
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
         }
     }, {})
 
