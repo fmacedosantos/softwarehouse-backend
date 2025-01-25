@@ -9,6 +9,7 @@
     "config-sequilize": "npx sequelize-cli init",
     "create-migration": "npx sequelize-cli migration:create --name",
     "create-migrations": "npx sequelize-cli db:migrate",
+    "delete-migrations": "npx sequelize-cli db:migrate:undo:all",
     "create-seed": "npx sequelize-cli seed:create --name",
     "create-seeds": "npx sequelize-cli db:seed:all"
   },
@@ -27,10 +28,12 @@
   "author": "fmacedosantos",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.12.0",
     "nodemon": "^3.1.9",
     "sequelize": "^6.37.5"
