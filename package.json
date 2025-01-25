@@ -2,9 +2,9 @@
   "name": "softwarehouse",
   "version": "1.0.0",
   "description": "The system helps to pay the employees' salary.",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/server.js",
     "test": "jest --passWithNoTests",
     "config-sequilize": "npx sequelize-cli init",
     "create-migration": "npx sequelize-cli migration:create --name",
