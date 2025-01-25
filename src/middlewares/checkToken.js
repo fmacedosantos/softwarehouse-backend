@@ -7,7 +7,7 @@ async function checkToken(req, res, next) {
         const authHeader = req.headers.authorization 
 
         if (!authHeader) { 
-            throw new Error('Usuário não autenticado!')
+            throw new Error('Sem cabeçalho de autenticação!')
         }
 
         // extraindo o token no formato Bearer <token>

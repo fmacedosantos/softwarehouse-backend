@@ -21,6 +21,7 @@ const validateCreateEmployee = (req, res, next) => {
     const result = validateFields({ name, positionId, hireDate })
 
     if(!result.isValid) {
+
         return res.status(400).json({ message: result.message })
     }
 
@@ -30,28 +31,32 @@ const validateCreateEmployee = (req, res, next) => {
 const validateUpdateEmployee = (req, res, next) => {
     
     const { id } = req.params
+
     const { name, positionId, hireDate } = req.body
 
     const result = validateFields({ id })
 
     if(!result.isValid) {
+
         return res.status(400).json({ message: result.message })
     }
 
     if (!name && !positionId && !hireDate) {
 
-        return res.status(400).json({ message: 'Pelo menos um campo válido deve ser fornecido para atualização' })
+        return res.status(400).json({ message: 'Preencha o campo "name", "positionId" ou "hireDate"!' })
     }
 
     next()
 }
 
 const validateDeleteEmployee = (req, res, next) => {
+
     const { id } = req.params
 
     const result = validateFields({ id })
 
     if(!result.isValid) {
+        
         return res.status(400).json({ message: result.message })
     }
 

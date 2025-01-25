@@ -19,5 +19,5 @@ app.use('/positions', positionsRouter)
 app.use('/employees', employeesRouter)
 
 app.listen(process.env.SERVER_PORT, () => {
-  console.log(`Server is running on port ${process.env.SERVER_PORT}`)
+  console.log(`Servidor rodando na porta ${process.env.SERVER_PORT}...`)
 })

@@ -49,6 +49,7 @@ const createUser = async (req, res) => {
         .catch(error => {
             
             if (error.name === 'SequelizeUniqueConstraintError') {
+
                 return res.status(400).json({ message: 'Usuário já cadastrado!' })
             }
         })
@@ -56,7 +57,6 @@ const createUser = async (req, res) => {
         return res.status(201).send()
     } catch (error) {
         
-        console.log(error)
         return res.status(500).json({ message: error.message })
     }
 }
