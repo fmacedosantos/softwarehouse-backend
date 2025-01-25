@@ -8,8 +8,6 @@ const login = async (req, res) => {
         
         const { username, password } = req.body
 
-        if (!username || !password) throw new Error('Insira o usuário e a senha!')
-
         const user = await User.findOne({ 
             where: { 
                 username
@@ -37,8 +35,6 @@ const createUser = async (req, res) => {
     try {
         
         const { username, password } = req.body
-
-        if (!username || !password) throw new Error('Insira o usuário e a senha!')
 
         const passwordHash = bcrypt.hashSync(password, 8)
 
