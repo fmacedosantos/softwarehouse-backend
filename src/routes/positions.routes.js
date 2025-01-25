@@ -1,17 +1,18 @@
 const express = require('express')
 const positionController = require('../controllers/positionController')
 const checkToken = require('../middlewares/checkToken')
+const validatePositions = require('../middlewares/validatePositions')
 
 const router = express.Router()
 
 router.get('/', checkToken, positionController.findAllPositions)
 
-router.get('/:id', checkToken, positionController.findOnePosition)
+router.get('/:id', validatePositions.validateFindPosition, checkToken, positionController.findOnePosition)
 
-router.post('/', checkToken, positionController.createPosition)
+router.post('/', validatePositions.validateCreatePosition, checkToken, positionController.createPosition)
 
-router.put('/:id', checkToken, positionController.updatePosition)
+router.put('/:id', validatePositions.validateUpdatePosition, checkToken, positionController.updatePosition)
 
-router.delete('/:id', checkToken, positionController.deletePosition)
+router.delete('/:id', validatePositions.validateDeletePosition, checkToken, positionController.deletePosition)
 
 module.exports = router
