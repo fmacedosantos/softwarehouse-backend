@@ -3,22 +3,30 @@
 module.exports = (sequelize, DataTypes) => {
 
     const Employee = sequelize.define('Employee', {
-        name: DataTypes.STRING,
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         hireDate: {
             type: DataTypes.DATE,
-            field: 'hire_date'
+            field: 'hire_date',
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         },
         positionId: {
             type: DataTypes.INTEGER,
-            field: 'position_id'
+            field: 'position_id',
+            allowNull: false
         },
         createdAt: {
             type: DataTypes.DATE,
-            field: 'created_at'
+            field: 'created_at',
+            defaultValue: DataTypes.NOW
         },
         updatedAt: {
             type: DataTypes.DATE,
-            field: 'updated_at'
+            field: 'updated_at',
+            defaultValue: DataTypes.NOW
         }
     }, {})
 
