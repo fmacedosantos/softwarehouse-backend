@@ -10,8 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         hireDate: {
             type: DataTypes.DATE,
             field: 'hire_date',
-            allowNull: false,
-            defaultValue: DataTypes.NOW
+            allowNull: false
         },
         positionId: {
             type: DataTypes.INTEGER,
