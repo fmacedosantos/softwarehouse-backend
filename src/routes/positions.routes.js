@@ -6,9 +6,9 @@ const checkRoles = require('../middlewares/checkRoles')
 
 const router = express.Router()
 
-router.get('/', checkToken, checkRoles(['employee', 'manager', 'admin']), positionController.findAllPositions)
+router.get('/', checkToken, checkRoles(['manager', 'admin']), positionController.findAllPositions)
 
-router.get('/:id', validatePositions.validateFindPosition, checkToken, checkRoles(['employee', 'manager', 'admin']), positionController.findOnePosition)
+router.get('/:id', validatePositions.validateFindPosition, checkToken, checkRoles(['manager', 'admin']), positionController.findOnePosition)
 
 router.post('/', validatePositions.validateCreatePosition, checkToken, checkRoles(['manager', 'admin']), positionController.createPosition)
 

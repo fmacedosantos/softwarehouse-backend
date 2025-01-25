@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         role: {
             type: DataTypes.JSON, 
             allowNull: false,
-            defaultValue: JSON.stringify(['employee']), // Definido como JSON
+            defaultValue: JSON.stringify(['manager']), 
         },
         biography: {
             type: DataTypes.TEXT,
