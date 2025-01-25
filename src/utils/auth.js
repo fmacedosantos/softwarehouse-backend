@@ -10,7 +10,7 @@ function generateToken(username) {
         payload,
         secret,
         {
-            expiresIn: '1h'
+            expiresIn: '4h'
         }
     )
 
