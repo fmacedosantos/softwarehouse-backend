@@ -4,7 +4,7 @@
   "description": "The system helps to pay the employees' salary.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/index.js",
     "test": "jest --passWithNoTests",
     "config-sequilize": "npx sequelize-cli init",
     "create-migration": "npx sequelize-cli migration:create --name",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "softwarehouse"
+    "url": "softwarehouse-sequelize-and-automatic-tests"
   },
   "keywords": [
     "['node'",
