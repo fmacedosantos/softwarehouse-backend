@@ -23,10 +23,9 @@ module.exports = {
         allowNull: false,
       },
       role: {
-        type: DataTypes.ENUM,
-        values: ['employee', 'admin', 'manager'],
+        type: DataTypes.JSON, 
         allowNull: false,
-        defaultValue: 'employee',
+        defaultValue: JSON.stringify(['employee']), // Definido como JSON
       },
       biography: {
         type: DataTypes.TEXT,

@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         role: {
-            type: DataTypes.ENUM('employee', 'admin', 'manager'),
+            type: DataTypes.JSON, 
             allowNull: false,
-            defaultValue: 'employee',
+            defaultValue: JSON.stringify(['employee']), // Definido como JSON
         },
         biography: {
             type: DataTypes.TEXT,
