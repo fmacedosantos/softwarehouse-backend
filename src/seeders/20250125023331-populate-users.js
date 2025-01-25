@@ -8,7 +8,7 @@ module.exports = {
       {
         username: 'Felipe',
         password: '$2a$10$f7FDTdyTWyfN/wP1sMnsE.A82UUkqMohul7Jy.yQTi1nOGpRII3Km',
-        role: 'admin',
+        role: ['admin', 'manager'], 
         biography: 'Técnico em desenvolvimento de sistemas.',
         links: JSON.stringify({
           linkedin: 'https://www.linkedin.com/in/felipe-macedo-dos-santos-37264a1b5/',
