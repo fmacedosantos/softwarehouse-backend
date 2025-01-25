@@ -1,19 +1,24 @@
 const { Employee, Position } = require('../models'); 
 
 const findAllEmployees = async (req, res) => {
+
     try {
+
         const employees = await Employee.findAll({
             include: [Position]
         });
+
         return res.json(employees);
     } catch (error) {
-        console.log({ erro: error });
-        return res.status(500).json({ message: 'Erro ao recuperar todas os funcionários!' });
+        
+        return res.status(500).json({ message: error.message });
     }
 }
 
 const findOneEmployee = async (req, res) => {
+
     try {
+
         const id = req.params.id;
 
         const employee = await Employee.findOne({
@@ -23,27 +28,37 @@ const findOneEmployee = async (req, res) => {
         });
 
         if (employee !== null) {
+
             return res.json(employee);
         } else {
+
             throw new Error('Funcionário não identificado!');
         }
     } catch (error) {
-        return res.status(500).json({ message: 'Erro ao recuperar o funcionário!' });
+
+        return res.status(500).json({ message: error.message });
     }
 }
 
 const createEmployee = async (req, res) => {
+
     try {
+
         await Employee.create(req.body);
+
         return res.status(201).json({ message: 'Funcionário registrado com sucesso!' });
     } catch (error) {
-        return res.status(500).json({ message: 'Erro ao registrar funcionário!' });
+
+        return res.status(500).json({ message: error.message });
     }
 }
 
 const updateEmployee = async (req, res) => {
+
     try {
+
         const id = req.params.id;
+
         const employee = await Employee.update(req.body, {
             where: {
                 id: id
@@ -59,17 +74,21 @@ const updateEmployee = async (req, res) => {
 
             return res.json(newEmployee);
         } else {
+
             throw new Error('Funcionário não identificado!');
         }
     } catch (error) {
-        const message = error.message === 'Funcionário não identificado!' ? 'Funcionário não identificado!' : 'Erro ao atualizar funcionário!';
-        return res.status(500).json({ message: message });
+
+        return res.status(500).json({ message: error.message });
     }
 }
 
 const deleteEmployee = async (req, res) => { 
+
     try {
+
         const id = req.params.id;
+
         const employee = await Employee.destroy({
             where: {
                 id: id
@@ -77,13 +96,15 @@ const deleteEmployee = async (req, res) => {
         });
 
         if (employee) {
+            
             return res.status(204).send();
         } else {
+
             throw new Error('Funcionário não identificado!');
         }
     } catch (error) {
-        const message = error.message === 'Funcionário não identificado!' ? 'Funcionário não identificado!' : 'Erro ao deletar funcionário!';
-        return res.status(500).json({ message: message });
+        
+        return res.status(500).json({ message: error.message });
     }
 }
 
