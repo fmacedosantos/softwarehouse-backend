@@ -21,9 +21,9 @@ function validateToken(token) {
 
     return new Promise((resolve, reject) => {
 
-        jwt.verify(token, secret, (err, decodedToken) => {
+        jwt.verify(token, secret, (error, decodedToken) => {
 
-            if (err) reject(err)
+            if (error) reject(error)
             else if(decodedToken) resolve(decodedToken)
         })
     })
