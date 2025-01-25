@@ -20,7 +20,7 @@ const login = async (req, res) => {
 
             if (!isValidPassword) throw new Error('Usuário ou senha inválidos!')
             
-            const token = auth.generateToken(user.username)
+            const token = auth.generateToken(user.username, user.role)
 
             return res.status(200).send({ token })
          }
