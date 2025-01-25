@@ -22,6 +22,23 @@ module.exports = {
                 type: DataTypes.STRING,
                 allowNull: false,
               },
+              role: {
+                type: DataTypes.ENUM('employee', 'admin', 'manager'),
+                allowNull: false,
+                defaultValue: 'employee',
+              },
+              biography: {
+                type: DataTypes.TEXT,
+                allowNull: true,
+              },
+              links: {
+                type: DataTypes.JSON,
+                allowNull: true,
+              },
+              profile_picture: {
+                type: DataTypes.BLOB,
+                allowNull: true,
+              },
               created_at: {
                 type: DataTypes.DATE,
                 allowNull: false,
