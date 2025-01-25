@@ -1,0 +1,37 @@
+{
+  "name": "softwarehouse",
+  "version": "1.0.0",
+  "description": "The system helps to pay the employees' salary.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest --passWithNoTests",
+    "config-sequilize": "npx sequelize-cli init",
+    "create-migration": "npx sequelize-cli migration:create --name",
+    "create-migrations": "npx sequelize-cli db:migrate",
+    "create-seed": "npx sequelize-cli seed:create --name",
+    "create-seeds": "npx sequelize-cli db:seed:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "softwarehouse"
+  },
+  "keywords": [
+    "['node'",
+    "'express'",
+    "'backend'",
+    "'sequelize'",
+    "'mysql'",
+    "'jest']"
+  ],
+  "author": "fmacedosantos",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "mysql2": "^3.12.0",
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.5"
+  }
+}
