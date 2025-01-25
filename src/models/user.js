@@ -11,13 +11,33 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        role: {
+            type: DataTypes.JSON, 
+            allowNull: false,
+            defaultValue: JSON.stringify(['manager']), 
+        },
+        biography: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        links: {
+            type: DataTypes.JSON,
+            allowNull: true,
+        },
+        profilePicture: {
+            type: DataTypes.BLOB,
+            field: 'profile_picture',
+            allowNull: true,
+        },
         createdAt: {
             type: DataTypes.DATE,
-            field: 'created_at'
+            field: 'created_at',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
         updatedAt: {
             type: DataTypes.DATE,
-            field: 'updated_at'
+            field: 'updated_at',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
         }
     }, {})
 

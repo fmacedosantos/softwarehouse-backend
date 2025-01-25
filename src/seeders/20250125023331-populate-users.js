@@ -6,8 +6,15 @@ module.exports = {
     
     await queryInterface.bulkInsert('Users', [
       {
-        username: 'Lucas',
-        password: '$2b$08$JzZzpB89KflF1XYhvty0Xe1m3AewJZkXzG4Qh6I7rvkRM47G2hH2y',
+        username: 'felipe',
+        password: '$2a$10$f7FDTdyTWyfN/wP1sMnsE.A82UUkqMohul7Jy.yQTi1nOGpRII3Km',
+        role: JSON.stringify(['admin', 'manager']), 
+        biography: 'Técnico em desenvolvimento de sistemas.',
+        links: JSON.stringify({
+          linkedin: 'https://www.linkedin.com/in/felipe-macedo-dos-santos-37264a1b5/',
+          github: 'https://github.com/fmacedosantos?tab=repositories'
+        }),
+        profile_picture: null,
         created_at: new Date(),
         updated_at: new Date()
       }

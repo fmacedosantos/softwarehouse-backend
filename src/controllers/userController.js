@@ -8,8 +8,6 @@ const login = async (req, res) => {
         
         const { username, password } = req.body
 
-        if (!username || !password) throw new Error('Insira o usuário e a senha!')
-
         const user = await User.findOne({ 
             where: { 
                 username
@@ -22,7 +20,7 @@ const login = async (req, res) => {
 
             if (!isValidPassword) throw new Error('Usuário ou senha inválidos!')
             
-            const token = auth.generateToken(user.username)
+            const token = auth.generateToken(user.username, user.role)
 
             return res.status(200).send({ token })
          }
@@ -37,8 +35,6 @@ const createUser = async (req, res) => {
     try {
         
         const { username, password } = req.body
-
-        if (!username || !password) throw new Error('Insira o usuário e a senha!')
 
         const passwordHash = bcrypt.hashSync(password, 8)
 
