@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         password: {
             type: DataTypes.STRING,
@@ -37,7 +38,8 @@ module.exports = (sequelize, DataTypes) => {
         updatedAt: {
             type: DataTypes.DATE,
             field: 'updated_at',
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            onUpdate: sequelize.literal('CURRENT_TIMESTAMP'),
         }
     }, {})
 
