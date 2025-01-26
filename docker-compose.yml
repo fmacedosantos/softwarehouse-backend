@@ -1,17 +1,17 @@
 services:
-  app:
+  softwarehouse:
     build: .
-    container_name: softwarehouse_app
+    container_name: softwarehouse
     ports:
       - "3000:3000"
     env_file:
       - .env
     depends_on:
-      - db
+      - softwarehouse_db
     networks:
       - softwarehouse_network
 
-  db:
+  softwarehouse_db:
     image: mysql:5.7
     container_name: softwarehouse_db
     environment:
@@ -24,34 +24,23 @@ services:
     networks:
       - softwarehouse_network
 
-  migrate:
-    build: .
-    container_name: softwarehouse_migrate
-    command: sh -c "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
-    depends_on:
-      - db
-    env_file:
-      - .env
-    networks:
-      - softwarehouse_network
-
-  delete-seeds:
+  softwarehouse_delete_seeds:
     build: .
     container_name: softwarehouse_delete_seeds
     command: sh -c "npx sequelize-cli db:seed:undo:all"
     depends_on:
-      - db
+      - softwarehouse_db
     env_file:
       - .env
     networks:
       - softwarehouse_network
 
-  delete-migrations:
+  softwarehouse_delete_migrations:
     build: .
     container_name: softwarehouse_delete_migrations
     command: sh -c "npx sequelize-cli db:migrate:undo:all"
     depends_on:
-      - db
+      - softwarehouse_db
     env_file:
       - .env
     networks:

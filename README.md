@@ -47,13 +47,20 @@ npm start
 ```sh
 docker compose build 
 ```
-2. Rode as migrações:
-```sh
-docker-compose run migrate
-```
 3. Inicie o contêiner:
 ```sh
-docker compose up app
+docker compose up softwarehouse
+```
+
+#### Dicas
+
+1. Para deletar as seeds:
+```sh
+docker compose run softwarehouse_delete_seeds
+```
+2. Para deletar as migrations:
+```sh
+docker compose run softwarehouse_delete_migrations
 ```
 
 ## Scripts Disponíveis

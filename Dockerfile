@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8082
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm start"]
