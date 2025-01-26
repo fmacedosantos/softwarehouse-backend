@@ -45,11 +45,15 @@ npm start
 
 1. Construa a imagem Docker:
 ```sh
-docker build -t softwarehouse .
+docker compose build 
 ```
-2. Inicie o contêiner:
+2. Rode as migrações:
 ```sh
-docker compose up
+docker-compose run migrate
+```
+3. Inicie o contêiner:
+```sh
+docker compose up app
 ```
 
 ## Scripts Disponíveis
