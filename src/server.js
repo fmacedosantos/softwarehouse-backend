@@ -18,6 +18,6 @@ app.use('/users', usersRouter)
 app.use('/positions', positionsRouter)
 app.use('/employees', employeesRouter)
 
-app.listen(process.env.SERVER_PORT, () => {
+app.listen(process.env.SERVER_PORT, process.env.SERVER_HOST, () => {
   console.log(`Servidor rodando na porta ${process.env.SERVER_PORT}...`)
 })
