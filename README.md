@@ -47,6 +47,10 @@ npm start
 ```sh
 docker compose build 
 ```
+2. Crie o banco e popule:
+```sh
+docker compose run softwarehouse_migrate
+```
 3. Inicie o contêiner:
 ```sh
 docker compose up softwarehouse
